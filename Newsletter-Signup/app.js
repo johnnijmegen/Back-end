@@ -1,10 +1,14 @@
 const bodyParser = require("body-parser");
 const https = require("https");
 const express = require("express");
+const request = require("request");
+
 const app = express();
 
+app.use(express.static("public"));
+
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.sendFile(__dirname + "/signup.html");
 });
 
 app.listen(3000, () => {
