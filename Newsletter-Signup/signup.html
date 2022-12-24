@@ -14,13 +14,13 @@
     />
 
     <!-- Custom styles for this template -->
-    <link href="public/css/styles.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
 
     <!-- Favicons -->
   </head>
   <body class="text-center">
     <main class="form-signin w-100 m-auto">
-      <form>
+      <form action="/" method="post">
         <img
           class="mb-4"
           src="https://images.unsplash.com/photo-1554283180-58b016d34e7c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
@@ -31,7 +31,12 @@
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
         <div class="form-floating">
-          <input type="text" class="form-control top" placeholder="firstName" />
+          <input
+            type="text"
+            class="form-control top"
+            placeholder="firstName"
+            name="firstName"
+          />
           <label for="text">First name</label>
         </div>
         <div class="form-floating">
@@ -39,6 +44,7 @@
             type="text"
             class="form-control middle"
             placeholder="lastName"
+            name="lastName"
           />
           <label for="text">Last name</label>
         </div>
@@ -47,6 +53,7 @@
             type="email"
             class="form-control bottom"
             placeholder="email@email.com"
+            name="email"
           />
           <label for="email">Email</label>
         </div>
