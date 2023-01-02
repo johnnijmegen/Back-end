@@ -76,7 +76,7 @@ app.post("/", function (req, res) {
     });
 
     //If all goes well logging the contact's id
-    res.sendFile(__dirname + "/success.html");
+    res.sendFile(__dirname + "/succes.html");
     console.log(
       `Successfully added contact as an audience member. The contact's id is ${response.id}.`
     );
