@@ -1,6 +1,7 @@
 const bodyParser = require("body-parser");
 const express = require("express");
 const https = require("https");
+const request = require("request");
 
 const app = express();
 
@@ -34,9 +35,9 @@ app.post("/", (req, res) => {
 
   // const jsonData = JSON.stringify(data);
 
-  // const url = `https://${dc}.api.mailchimp.com/3.0/ping`;
+  // const url = `https://us12.admin.mailchimp.com/`;
 
-  // https.request(url, options, function (response) {});
+  https.request(url, options, function (response) {});
 
   res.send(
     `Hello ${firstName} ${lastName}, thank you for subscribing to our newsletter.`
