@@ -4,7 +4,10 @@ const https = require("https");
 
 const app = express();
 
+// Allows use of local files
 app.use(express.static("public"));
+
+// Add bodyparser to app.
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
@@ -29,11 +32,11 @@ app.post("/", (req, res) => {
     ],
   };
 
-  const jsonData = JSON.stringify(data);
+  // const jsonData = JSON.stringify(data);
 
-  const url = "https://${dc}.api.mailchimp.com/3.0/ping";
+  // const url = `https://${dc}.api.mailchimp.com/3.0/ping`;
 
-  https.request(url, options, function (response) {});
+  // https.request(url, options, function (response) {});
 
   res.send(
     `Hello ${firstName} ${lastName}, thank you for subscribing to our newsletter.`
