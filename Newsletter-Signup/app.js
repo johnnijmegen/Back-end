@@ -16,12 +16,16 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 
+require("dotenv").config();
+
+console.log(process.env.API_KEY);
+
 //Using bod-parser
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //The public folder which holds the CSS
-
 app.use(express.static("public"));
+
 //Listening on port 3000 and if it goes well then logging a message saying that the server is running
 
 app.listen(process.env.PORT || 3000, function () {
@@ -35,24 +39,28 @@ app.get("/", function (req, res) {
 
 //Setting up MailChimp
 mailchimp.setConfig({
-  apiKey: "ef0485767c67b7f6be10c7d12d51037f-us12",
-  server: "us12",
+  apiKey: process.env.API_KEY,
+  server: process.env.SERVER,
 });
 
 //As soon as the sign in button is pressed execute this
 app.post("/", function (req, res) {
   //*****************************CHANGE THIS ACCORDING TO THE VALUES YOU HAVE ENTERED IN THE INPUT ATTRIBUTE IN HTML******************************
   const firstName = req.body.firstName;
-  const secondName = req.body.secondName;
+  const lastName = req.body.lastName;
   const email = req.body.email;
 
+  console.log(firstName);
+  console.log(lastName);
+  console.log(email);
+
   //*****************************ENTER YOU LIST ID HERE******************************
-  const listId = "5d58e71543";
+  const listId = process.env.LIST;
 
   //Creating an object with the users data
   const subscribingUser = {
     firstName: firstName,
-    lastName: secondName,
+    lastName: lastName,
     email: email,
   };
 
@@ -77,5 +85,7 @@ app.post("/", function (req, res) {
   //Running the function and catching the errors (if any)
   // ************************THIS IS THE CODE THAT NEEDS TO BE ADDED FOR THE NEXT LECTURE*************************
   // So the catch statement is executed when there is an error so if anything goes wrong the code in the catch code is executed. In the catch block we're sending back the failure page. This means if anything goes wrong send the faliure page
-  run().catch((e) => res.sendFile(__dirname + "/failure.html"));
+  run().catch((e) => console.log(e));
 });
+
+// res.sendFile(__dirname + "/failure.html");
