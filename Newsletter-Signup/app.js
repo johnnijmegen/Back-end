@@ -18,9 +18,7 @@ const app = express();
 
 require("dotenv").config();
 
-console.log(process.env.API_KEY);
-
-//Using bod-parser
+//Using body-parser
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //The public folder which holds the CSS
@@ -85,7 +83,7 @@ app.post("/", function (req, res) {
   //Running the function and catching the errors (if any)
   // ************************THIS IS THE CODE THAT NEEDS TO BE ADDED FOR THE NEXT LECTURE*************************
   // So the catch statement is executed when there is an error so if anything goes wrong the code in the catch code is executed. In the catch block we're sending back the failure page. This means if anything goes wrong send the faliure page
-  run().catch((e) => console.log(e));
+  run().catch((e) => res.sendFile(__dirname + "/failure.html"));
 });
 
-// res.sendFile(__dirname + "/failure.html");
+// ;
