@@ -1,0 +1,6 @@
+git diff
+git status
+git commit -m ""
+git checkout //rollback
+git remote add origin url
+git push -u origin master
