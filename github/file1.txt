@@ -1,6 +1,43 @@
 git diff
+git log
 git status
 git commit -m ""
 git checkout //rollback
 git remote add origin url
 git push -u origin master
+
+4 stages
+working directory. - 
+Staging area - Checks the changes
+Local repository - .git on pc
+Remote repository - GITHUB
+
+
+remove all from staging area- 
+git rm --cached -r . 
+
+Secret files
+.gitignore
+
+touch .gitignore
+
+
+Cloning-
+git clone url
+
+
+branching.
+git branch alien-plot
+git branch
+git checkout alien-plot
+git add . 
+git commit -m ""
+git log
+
+git checkout master
+git merge alien-plot
+
+
+
+forking and pull requests
+contributing to open source.
